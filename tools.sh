@@ -81,7 +81,7 @@ function git-diff-untracked() {
 # the files and lines different from master
 function git-diff-lines() {
   # staged, untracked, commited
-  declare -a arr=("git diff HEAD" "git-diff-untracked" "git diff --relative master...")
+  declare -a arr=("git diff HEAD --relative" "git-diff-untracked" "git diff --relative master...")
 
   for cond in "${arr[@]}"
   do
