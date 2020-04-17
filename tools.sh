@@ -5,6 +5,7 @@
 #Author       : Yahn-Chung (Andrew) Chen
 #Email        : bg43179@gmail.com
 #Reference    :
+# John Mellor, https://stackoverflow.com/questions/8259851/using-git-diff-how-can-i-get-added-and-modified-lines-numbers
 #========================================================================
 
 
