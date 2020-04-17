@@ -1,6 +1,6 @@
 #========================================================================
-#Script Name	:
-#Description	:
+#Script Name  :
+#Description  :
 #Args         :
 #Author       : Yahn-Chung (Andrew) Chen
 #Email        : bg43179@gmail.com
@@ -95,8 +95,8 @@ function debug() {
 }
 
 #========================================================================
-#Script Name	: tall
-#Description	: run test launcher for commited, staged and untracked changes
+#Script Name  : tall
+#Description  : run test launcher for commited, staged and untracked changes
 #Args         :
 #Author       : Yahn-Chung (Andrew) Chen
 #Email        : bg43179@gmail.com
