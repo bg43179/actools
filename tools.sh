@@ -94,3 +94,23 @@ function debug() {
   echo $regex
 }
 
+#========================================================================
+#Script Name	: tall
+#Description	: run test launcher for commited, staged and untracked changes
+#Args         :
+#Author       : Yahn-Chung (Andrew) Chen
+#Email        : bg43179@gmail.com
+#Reference    :
+#========================================================================
+
+
+function tall() # Run test launcher for both uncommited and commited tests
+{
+  echo -e "----${BIBlue} Uncommited File Start ${NC}------"
+  git status -suall --porcelain | awk '{print $2}' | grep '_test\.rb$' | xargs test_launcher
+  echo -e "----${BIBlue} Uncommited File End ${NC}------"
+
+  echo -e "----${BIBlue} Commited File Start ${NC}------"
+  git diff --name-only --relative master... | grep 'test\.rb$' | xargs test_launcher
+  echo -e "----${BIBlue} Commited File End ${NC}------"
+}
