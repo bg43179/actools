@@ -41,12 +41,12 @@ function f
       echo -e "----${BIBlue} commited files start ${NC}------"
       git diff --name-only --relative master... | grep '\.rb$'
       git diff --name-only --relative master... | grep '\.rb$' | xargs rubocop --color | grep -E $regex
-      echo -e "----${BIBlue} commited files end ${NC}------"
+      echo -e "----${BIBlue} commited files end ${NC}------\n"
 
       echo -e "----${BIBlue} uncommited files found ${NC}------"
       git status -suall | awk '{print $2}'
       git status -suall | awk '{print $2}' | grep '\.rb$' | xargs rubocop --color | grep -E $regex
-      echo -e "----${BIBlue} uncommited Files End ${NC}------"
+      echo -e "----${BIBlue} uncommited files End ${NC}------"
       shift ;;
     esac
   done
@@ -106,11 +106,11 @@ function debug() {
 
 function tall() # Run test launcher for both uncommited and commited tests
 {
-  echo -e "----${BIBlue} Uncommited File Start ${NC}------"
-  git status -suall --porcelain | awk '{print $2}' | grep '_test\.rb$' | xargs test_launcher
-  echo -e "----${BIBlue} Uncommited File End ${NC}------"
-
-  echo -e "----${BIBlue} Commited File Start ${NC}------"
+  echo -e "----${BIBlue} commited files start ${NC}------"
   git diff --name-only --relative master... | grep 'test\.rb$' | xargs test_launcher
-  echo -e "----${BIBlue} Commited File End ${NC}------"
+  echo -e "----${BIBlue} commited files end ${NC}------"
+
+  echo -e "----${BIBlue} uncommited files start ${NC}------"
+  git status -suall --porcelain | awk '{print $2}' | grep '_test\.rb$' | xargs test_launcher
+  echo -e "----${BIBlue} uncommited files end ${NC}------"
 }
